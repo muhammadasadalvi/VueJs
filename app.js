@@ -6,6 +6,14 @@ const app = Vue.createApp({
       confirmName: ''
     };
   },
+  /* Computer properties not evaluated when dependency changed,
+   Computed Properties cached
+   usually used to display something to screen */
+  computed: {
+    fullName() {
+      return this.name && this.name + ' ' + "Alvi" || ""
+    }
+  },
   methods: {
     addCounter(num) {
       this.counter = this.counter + num;
