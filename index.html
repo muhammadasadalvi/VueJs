@@ -17,9 +17,23 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="addCounter">Add</button>
-      <button v-on:click="subtractCounter">Reduce</button>
+      <button v-on:click="addCounter(10)">Add 10</button>
+      <button v-on:click.right="subtractCounter(5)">Reduce 5</button>
+      <!-- dynamic data binding should be evaluated once v-once is used in this scanerio this will preseve the initial state -->
+      <p v-once>Starting Counter: {{counter}}</p>
       <p>Result: {{ counter }}</p>
+      <button v-on:click="resetInput">Reset Button</button>
+      <!-- v-model is short cut for v-on:input and v-on:value that is two way data binding -->
+      <!-- <input type="text" v-on:input="setName($event, 'Awan')" v-on:keyup.enter="confirmInput"> -->
+      <input type="text" v-model="name">
+      <p>Your Name: {{confirmName}}</p>
+
+      <!-- methods will be executed on everytime page render which is not good for performance perspective -->
+
+      <form v-on:submit.prevent="submitForm">
+        <input type="text">
+        <button>SignUp</button>
+      </form>
     </section>
   </body>
 
