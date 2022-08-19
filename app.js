@@ -3,17 +3,28 @@ const app = Vue.createApp({
     return {
       counter: 0,
       name: "",
+      fullName: '',
       confirmName: ''
     };
   },
+
+  watch: {
+    name(newValue, oldValue) {
+      if (newValue) {
+        this.fullName = newValue + ' ' + "alvi"
+      }
+      console.log(oldValue);
+    }
+  },
+
   /* Computer properties not evaluated when dependency changed,
    Computed Properties cached
    usually used to display something to screen */
-  computed: {
-    fullName() {
-      return this.name && this.name + ' ' + "Alvi" || ""
-    }
-  },
+  // computed: {
+  //   fullName() {
+  //     return this.name && this.name + ' ' + "Alvi" || ""
+  //   }
+  // },
   methods: {
     addCounter(num) {
       this.counter = this.counter + num;
