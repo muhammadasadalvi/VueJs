@@ -16,9 +16,10 @@
       <h1>Vue Dynamic Styling</h1>
     </header>
     <section id="styling">
-      <div class="demo" :style="{borderColor:boxASelected? 'red':'green'}" @click="boxSelected('A')"></div>
-      <div class="demo" :style="{background:boxBSelected? 'green':'blue'}" @click="boxSelected('B')"></div>
-      <div class="demo" :style="{background:boxCSelected? 'blue':'green'}" @click="boxSelected('C')"></div>
+      <!-- we can also use ternary operator but this is smarter way to do add dynamic classes you ca add more as you want -->
+      <div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
+      <div class="demo" :class="boxBClasses" @click="boxSelected('B')"></div>
+      <div class="demo" :class="boxCClasses" @click="boxSelected('C')"></div>
     </section>
   </body>
 
